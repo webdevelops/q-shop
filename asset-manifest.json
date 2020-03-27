@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/q-shop/static/css/main.fb602c96.chunk.css",
+    "main.js": "/q-shop/static/js/main.6c5bbfee.chunk.js",
+    "main.js.map": "/q-shop/static/js/main.6c5bbfee.chunk.js.map",
+    "runtime-main.js": "/q-shop/static/js/runtime-main.94070100.js",
+    "runtime-main.js.map": "/q-shop/static/js/runtime-main.94070100.js.map",
+    "static/js/2.bfc649c5.chunk.js": "/q-shop/static/js/2.bfc649c5.chunk.js",
+    "static/js/2.bfc649c5.chunk.js.map": "/q-shop/static/js/2.bfc649c5.chunk.js.map",
+    "index.html": "/q-shop/index.html",
+    "precache-manifest.618767d4b4b673a94a300649ee7968bd.js": "/q-shop/precache-manifest.618767d4b4b673a94a300649ee7968bd.js",
+    "service-worker.js": "/q-shop/service-worker.js",
+    "static/css/main.fb602c96.chunk.css.map": "/q-shop/static/css/main.fb602c96.chunk.css.map",
+    "static/js/2.bfc649c5.chunk.js.LICENSE.txt": "/q-shop/static/js/2.bfc649c5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.94070100.js",
+    "static/js/2.bfc649c5.chunk.js",
+    "static/css/main.fb602c96.chunk.css",
+    "static/js/main.6c5bbfee.chunk.js"
+  ]
+}
