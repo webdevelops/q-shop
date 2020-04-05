@@ -1,16 +1,22 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Card, CardContent, CardMedia, Typography, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import useStyles from './styles';
 import { fetchPhoneById, addPhoneToBasket } from '../../store/actions/phonesActions';
 import { getPhoneById } from '../../selectors';
 import BasketCart from '../../components/BasketCart';
+import Spinner from '../../components/Spinner';
 
-const Phone = ({ fetchPhoneById, match, phone, addPhoneToBasket }) => {
+const Phone = ({ 
+  fetchPhoneById, 
+  match, 
+  phone, 
+  addPhoneToBasket, 
+}) => {
+
   const classes = useStyles();
 
   useEffect(() => {
@@ -43,7 +49,7 @@ const Phone = ({ fetchPhoneById, match, phone, addPhoneToBasket }) => {
 
   const renderPhone = () => {
     return (
-      <Card raised /* variant="outlined" */>
+      <Card raised >
         <CardContent>
           <Grid container className={classes.info}>
             <Grid item xs={12} md={6}>
@@ -54,7 +60,7 @@ const Phone = ({ fetchPhoneById, match, phone, addPhoneToBasket }) => {
                 className={classes.image}
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} className={classes.fields}>
               {renderFields()}
             </Grid>
           </Grid>
@@ -110,6 +116,10 @@ const Phone = ({ fetchPhoneById, match, phone, addPhoneToBasket }) => {
     );
   };
 
+  if (!phone) {
+    return <Spinner />;
+  }
+
   return (
     <div className={classes.root}>
       <Grid container spacing={5}>
@@ -135,5 +145,12 @@ const mapDispatchToProps = {
   fetchPhoneById,
   addPhoneToBasket
 }
+
+Phone.propTypes = {
+  fetchPhoneById: PropTypes.func,
+  match: PropTypes.object,
+  phone: PropTypes.object,
+  addPhoneToBasket: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phone);

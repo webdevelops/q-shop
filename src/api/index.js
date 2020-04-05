@@ -1,4 +1,3 @@
-
 import phones from './mockPhones_image_http';
 import categories from './mockCategories';
 
@@ -21,12 +20,11 @@ export const authApi = async (email, password, isLogin) => {
     method: "POST",
     body: JSON.stringify(authData),
     headers: {
-      "Content-Type": "application/josn"
+      "Content-Type": "application/json",
     }
   });
 
   const data = await response.json();
-  console.log("TCL: authApi!!! -> data", data);
 
   const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000);
 
@@ -44,20 +42,20 @@ export const authApi = async (email, password, isLogin) => {
   };
 };
 
-const sendDataToServer = (url, data) => {
+const sendDataToServer = async (url, data) => {
   try {
-    const response = fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       }
     });
-    const json = response.json()
-    console.log("sendDataToServer -> json", json)
+    const json = await response.json()
+    console.log("sendDataToServer -> json", json);
 
   } catch (err) {
-    console.log("sendDataToServer -> err", err)
+    console.log("sendDataToServer -> err", err);
   }
 };
 

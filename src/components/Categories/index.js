@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import useStyles from './styles';
 
@@ -53,6 +54,11 @@ const Categories = ({ categories, match }) => {
       </List>
     </div>
   );
+};
+
+Categories.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.object),
+  match: PropTypes.object,
 };
 
 export default withRouter(Categories);

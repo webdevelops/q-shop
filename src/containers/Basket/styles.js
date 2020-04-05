@@ -3,18 +3,18 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(theme => ({
   root: {
-    marginTop: 20,
+    marginTop: theme.spacing(3),
     [theme.breakpoints.up("sm")]: {
-      marginTop: 35,
+      marginTop: theme.spacing(4.5),
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: 45,
+      marginTop: theme.spacing(6.5),
     },
     '& table tr:nth-of-type(even)': {
-      background: "#eee",
+      background: theme.palette.grey[100],
     },
     '& table td': {
-      padding: 5,
+      padding: theme.spacing(.6),
       border: "1px solid #ccc",
     },
     '& table td:last-child': {
@@ -24,7 +24,7 @@ export default makeStyles(theme => ({
   image: {
     width: "12%",
     '& img': {
-      maxWidth: 100
+      maxWidth: theme.spacing(12.5)
     },
   },
   deletePhone: {
@@ -35,22 +35,22 @@ export default makeStyles(theme => ({
   totalPrice: {
     display: "flex",
     justifyContent: "flex-end",
-    margin: "15px 0",
+    margin: theme.spacing(2, 0),
     '& b': {
-      marginRight: 5,
+      marginRight: theme.spacing(.6),
     },
   },
   continueShopping: {
     display: "block",
     textDecoration: "none",
-    borderRadius: 5,
-    marginBottom: 10,
+    borderRadius: theme.spacing(.6),
+    marginBottom: theme.spacing(1.2),
     background: [theme.palette.info.main],
     '&:hover': {
       background: [theme.palette.info.dark],
     },
     '& span': {
-      color: "white",
+      color: theme.palette.background.paper,
     },
   },
   cleanBasket: {
@@ -58,14 +58,14 @@ export default makeStyles(theme => ({
     '&:hover': {
       background: [theme.palette.error.dark],
     },
-    color: "white",
-    marginBottom: 10,
+    color: theme.palette.background.paper,
+    marginBottom: theme.spacing(1.2),
   },
   checkout: {
     background: [theme.palette.success.main],
     '&:hover': {
       background: [theme.palette.success.dark],
     },
-    color: "white",
+    color: theme.palette.background.paper,
   },
 }));

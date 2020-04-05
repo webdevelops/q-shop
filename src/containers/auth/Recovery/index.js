@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -35,7 +34,7 @@ const Recovery = () => {
     control.valid = validateControl(control.value, control.validation);
 
     setFormControls(newFormControls);
-  }
+  };
 
   const renderFormControls = () => {
     return (
@@ -47,20 +46,18 @@ const Recovery = () => {
           : "";
 
         return (
-          <Grid container className={classes.formControl}>
+          <Grid container className={classes.formControl} key={index}>
             <Grid item>
               <DraftsTwoToneIcon fontSize="small" />
             </Grid>
             <Grid item>
               <TextField
-                key={index}
                 id={controlName + index}
                 type={control.type}
                 label={control.label}
                 value={control.value}
                 error={isInvalid}
                 helperText={helperText}
-                className={classes.textField}
                 onChange={handleChange(controlName)}
               />
             </Grid>
@@ -73,9 +70,9 @@ const Recovery = () => {
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
-        <form /* className="form form__recovery" */ className={classes.form}>
+        <form className={classes.form}>
 
-          <div /* className="form__header" */ className={classes.header}>
+          <div className={classes.header}>
             <Typography variant="h4" color="primary">
               Recovery
             </Typography>
@@ -97,4 +94,4 @@ const Recovery = () => {
   );
 }
 
-export default Recovery
+export default Recovery;

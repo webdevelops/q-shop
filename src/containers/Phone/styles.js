@@ -2,20 +2,23 @@ import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
   root: {
-    marginTop: 20,
+    marginTop: theme.spacing(2.5),
     [theme.breakpoints.up("sm")]: {
-      marginTop: 35,
+      marginTop: theme.spacing(4.5),
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: 45,
+      marginTop: theme.spacing(6),
     },
   },
   info:{
-    marginBottom: 20,
+    marginBottom: theme.spacing(2.5),
   },
   image: {
-    maxWidth: 300,
-    marginBottom: 30,
+    maxWidth: theme.spacing(38),
+    marginBottom: theme.spacing(3.8),
+  },
+  fields: {
+    paddingLeft: theme.spacing(1.5),
   },
   title: {
     display: "flex",
@@ -29,21 +32,21 @@ export default makeStyles(theme => ({
   field: {
     display: "flex",
     alignItems: "center",
-    padding: "10px 0",
+    padding: theme.spacing(1.2, 0),
     borderBottom: "1px dotted #ccc",
     '& h6': {
-      marginRight: 10,
+      marginRight: theme.spacing(1.2),
     },
   },
   sidebarTitle: {
-    marginTop: 20,
+    marginTop: theme.spacing(2.5),
   },
   backToStore: {
-    margin: "15px 0",
+    margin: theme.spacing(2, 0),
     display: "block",
     textDecoration: "none",
     '& button': {
-      color: "white",
+      color: theme.palette.background.paper,
       background: theme.palette.info.main,
       trnasition: "0.3s",
       '&:hover': {
@@ -52,7 +55,7 @@ export default makeStyles(theme => ({
     },
   },
   addToBasket: {
-    color: "white",
+    color: theme.palette.background.paper,
     background: theme.palette.success.main,
     '&:hover': {
       background: theme.palette.success.dark,

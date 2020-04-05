@@ -1,4 +1,3 @@
-
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Typography, Button } from '@material-ui/core';
@@ -6,6 +5,7 @@ import { Link } from 'react-router-dom';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 import MailOutlineTwoToneIcon from '@material-ui/icons/MailOutlineTwoTone';
+import PropTypes from 'prop-types';
 
 import useStyles from './styles';
 import BasketTable from './BasketTable';
@@ -89,6 +89,14 @@ const mapDispatchToProps = {
   handleRemovePhone,
   handleCleanBasket,
   handleCheckout
+};
+
+Basket.propTypes = {
+  phones: PropTypes.arrayOf(PropTypes.object),
+  totalBasketPrice: PropTypes.number,
+  handleRemovePhone: PropTypes.func,
+  handleCleanBasket: PropTypes.func,
+  handleCheckout: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Basket);

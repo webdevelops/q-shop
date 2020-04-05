@@ -1,11 +1,10 @@
-
 import React from 'react';
 import {
   TableContainer, Table, TableHead, TableBody,
   Paper, TableRow, TableCell, IconButton
 } from '@material-ui/core';
-
 import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
+import PropTypes from 'prop-types';
 
 import useStyles from '../styles';
 
@@ -39,6 +38,11 @@ const BasketTable = ({ phones, handleRemovePhone }) => {
       </Table>
     </TableContainer>
   );
+};
+
+BasketTable.propTypes = {
+  phones: PropTypes.arrayOf(PropTypes.object),
+  handleRemovePhone: PropTypes.func,
 };
 
 export default BasketTable;

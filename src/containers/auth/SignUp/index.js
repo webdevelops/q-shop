@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
 import LockOpenTwoToneIcon from '@material-ui/icons/LockOpenTwoTone';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import '../auth.sass';
 import useStyles from '../authStyles';
 import { auth } from '../../../store/actions/authActions';
 import { validateControl } from '../../../selectors';
 
-const SignUp = ({auth}) => {
+const SignUp = ({ auth }) => {
   const classes = useStyles();
 
   const [formControls, setFormControls] = useState({
@@ -69,7 +70,7 @@ const SignUp = ({auth}) => {
   }
 
   const header = (
-    <div /* className="form__header" */ className={classes.header}>
+    <div className={classes.header}>
       <Typography variant="h4" color="secondary">
         Sign In
       </Typography>
@@ -120,7 +121,6 @@ const SignUp = ({auth}) => {
                 value={control.value}
                 error={isInvalid}
                 helperText={helperText}
-                className={classes.textField}
                 onChange={handleChange(controlName)}
               />
             </Grid>
@@ -139,7 +139,7 @@ const SignUp = ({auth}) => {
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
-        <form /* className="form" */ className={classes.form}>
+        <form className={classes.form}>
 
           {header}
 
@@ -170,6 +170,10 @@ const SignUp = ({auth}) => {
 
 const mapDispatchToProps = {
   auth
+};
+
+SignUp.propTypes = {
+  auth: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(SignUp);

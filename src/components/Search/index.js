@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { makeStyles, TextField, IconButton } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { searchPhone } from '../../store/actions/phonesActions';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    padding: "60px 25px",
-    background: "#eee",
-    marginBottom: 30,
+    padding: theme.spacing(7.5, 3),
+    background: theme.palette.grey[200],
+    marginBottom: theme.spacing(4),
     '& form': {
       display: "flex",
       position: "relative",
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
       right: 5,
     },
   },
-});
+}));
 
 const Search = ({ searchPhone }) => {
   const classes = useStyles();
@@ -46,6 +47,7 @@ const Search = ({ searchPhone }) => {
           id="search"
           variant="outlined"
           label="Search"
+          value={value}
           onChange={handleSearch}
         />
         <IconButton type="submit" aria-label="search">
@@ -58,6 +60,10 @@ const Search = ({ searchPhone }) => {
 
 const mapDispatchToProps = {
   searchPhone
-}
+};
+
+Search.propTypes = {
+  searchPhone: PropTypes.func,
+};
 
 export default connect(null, mapDispatchToProps)(Search);

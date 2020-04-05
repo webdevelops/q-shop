@@ -8,19 +8,20 @@ const useStyles = makeStyles(theme => ({
     height: "100vh",
     background: "#63bdf1",
     position: "fixed",
+    minWidth: 320,
     left: 0,
     right: 0,
   },
   form: {
     display: "flex",
     flexDirection: "column",
-    background: "white",
-    padding: 25,
-    borderRadius: 5,
-    minWidth: 250,
+    background: theme.palette.background.paper,
+    padding: theme.spacing(3),
+    borderRadius: theme.spacing(.6),
+    minWidth: theme.spacing(30),
   },
   header: {
-    marginBottom: 20,
+    marginBottom: theme.spacing(2.5),
     '& h4': {
       fontWeight: "bold",
     },
@@ -28,18 +29,18 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     display: "flex",
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: theme.spacing(1.2),
     '& svg': {
-      marginTop: 20,
-      marginRight: 10,
+      marginTop: theme.spacing(3),
+      marginRight: theme.spacing(1.2),
       opacity: .5,
     },
   },
   button: {
-    marginTop: 30,
+    marginTop: theme.spacing(4),
   },
   recovery: {
-    marginTop: 10,
+    marginTop: theme.spacing(1.2),
   }
 }));
 

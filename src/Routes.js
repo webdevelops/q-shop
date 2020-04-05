@@ -1,7 +1,8 @@
-
 import React, { useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 import SignIn from './containers/auth/SignIn';
 import SignUp from './containers/auth/SignUp';
@@ -12,8 +13,15 @@ import Phones from './containers/Phones';
 import Phone from './containers/Phone';
 import Basket from './containers/Basket';
 
+const useStyles = makeStyles({
+  root: {
+    minWidth: 320,
+  },
+})
 
 const Routes = ({ isAuthenticated, autoLogin }) => {
+  const classes = useStyles();
+
   useEffect(() => {
     autoLogin();
   });
@@ -44,12 +52,16 @@ const Routes = ({ isAuthenticated, autoLogin }) => {
       </Switch>
     )
 
-  return routes;
+  return (
+    <div className={classes.root}>
+      {routes}
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: !!state.auth.token
+    isAuthenticated: !!state.auth.token,
   };
 };
 
@@ -57,4 +69,9 @@ const mapDispatchToProps = {
   autoLogin
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Routes)
+Routes.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  autoLogin: PropTypes.func,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Routes);

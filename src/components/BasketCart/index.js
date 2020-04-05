@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import PropTypes from 'prop-types';
 
 import { getTotalBasketCount, getTotalBasketPrice } from '../../selectors';
 
@@ -33,6 +34,11 @@ const mapStateToProps = state => {
     totalBasketCount: getTotalBasketCount(state),
     totalBasketPrice: getTotalBasketPrice(state)
   };
+};
+
+BasketCart.propTypes = {
+  totalBasketCount: PropTypes.number,
+  totalBasketPrice: PropTypes.number,
 };
 
 export default connect(mapStateToProps)(BasketCart);

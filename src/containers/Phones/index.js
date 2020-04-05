@@ -1,7 +1,7 @@
-
 import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Button } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 import useStyles from './styles';
 import PhoneCard from '../../components/PhoneCard';
@@ -10,15 +10,16 @@ import Search from '../../components/Search';
 import { fetchPhones, loadMorePhones, fetchCategories } from '../../store/actions/phonesActions';
 import { getPhones } from '../../selectors';
 import Categories from '../../components/Categories';
+import Spinner from '../../components/Spinner';
 
 const Phones = ({ 
   fetchPhones, 
   phones, 
   loadMorePhones, 
   fetchCategories, 
-  categories 
+  categories,
+  loading
 }) => {
-
   const classes = useStyles();
 
   useEffect(() => {
@@ -35,6 +36,10 @@ const Phones = ({
   };
 
   const handleLoadMore = () => loadMorePhones();
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <div className={classes.root}>
@@ -64,7 +69,8 @@ const Phones = ({
 const mapStateToProps = (state, ownProps) => {
   return {
     phones: getPhones(state, ownProps),
-    categories: state.categories
+    categories: state.categories,
+    loading: state.phonesPage.loading
   };
 };
 
@@ -72,6 +78,15 @@ const mapDispatchToProps = {
   fetchPhones,
   loadMorePhones,
   fetchCategories
+};
+
+Phones.propTypes = {
+  fetchPhones: PropTypes.func,
+  phones: PropTypes.arrayOf(PropTypes.object),
+  loadMorePhones: PropTypes.func,
+  fetchCategories: PropTypes.func,
+  categories: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.bool,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones)

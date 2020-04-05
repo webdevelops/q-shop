@@ -3,21 +3,18 @@ import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
   root: {
-    marginTop: 20,
-    [theme.breakpoints.up("sm")]:{
-      marginTop: 30,
+    marginTop: theme.spacing(2.5),
+    [theme.breakpoints.up("sm")]: {
+      marginTop: theme.spacing(4.5),
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: 35,
+      marginTop: theme.spacing(6),
     },
-  },
-  '& .MuiGrid-spacing-xs-4': {
-    // margin: 0,
   },
   sidebar: {
     display: "block",
     [theme.breakpoints.down("lg")]: {
-      marginBottom: 30,
+      marginBottom: theme.spacing(4),
     },
   },
   card: {
@@ -29,6 +26,6 @@ export default makeStyles(theme => ({
     display: "flex",
     justifyContent: "flex-end",
     width: "100%",
-    margin: "30px 0 50px",
+    margin: theme.spacing(4, 0, 6.5, 0),
   },
 }));

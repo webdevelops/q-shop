@@ -2,10 +2,10 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(theme => ({
   root: {
-    padding: "50px 25px 60px",
-    background: "#eee",
+    padding: theme.spacing(6.5, 3.5, 8, 3.5),
+    background: theme.palette.grey[200],
     '& nav': {
-      background: "white",
+      background: theme.palette.background.paper,
       padding: 0,
     },
   },
@@ -13,7 +13,7 @@ export default makeStyles(theme => ({
     padding: 0,
     '& a': {
       width: "100%",
-      padding: "8px 16px",
+      padding: theme.spacing(1, 2),
       textDecoration: "none",
       color: "inherit",
     },
@@ -22,7 +22,7 @@ export default makeStyles(theme => ({
     },
     '&.Mui-selected': {
       background: [theme.palette.primary.main],
-      color: "white",
+      color: theme.palette.background.paper,
       trnasition: "0.3s",
       '&:hover': {
         background: [theme.palette.primary.main],

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import '../auth.sass';
 import useStyles from '../authStyles';
@@ -52,13 +53,13 @@ const SignIn = ({ auth }) => {
   }
 
   const header = (
-    <div /* className="form__header" */ className={classes.header}>
+    <div className={classes.header}>
       <Typography variant="h4" color="primary">
         Sign In
-            </Typography>
+      </Typography>
       <Typography variant="h4" color="secondary">
         Sign Up
-            </Typography>
+      </Typography>
     </div>
   );
 
@@ -99,7 +100,6 @@ const SignIn = ({ auth }) => {
                 value={control.value}
                 error={isInvalid}
                 helperText={helperText}
-                className={classes.textField}
                 onChange={handleChange(controlName)}
               />
             </Grid>
@@ -118,7 +118,7 @@ const SignIn = ({ auth }) => {
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
-        <form /* className="form" */ className={classes.form}>
+        <form className={classes.form}>
 
           {header}
 
@@ -155,4 +155,8 @@ const mapDispatchToProps = {
   auth
 };
 
-export default connect(null, mapDispatchToProps)(SignIn)
+SignIn.propTypes = {
+  auth: PropTypes.func,
+};
+
+export default connect(null, mapDispatchToProps)(SignIn);

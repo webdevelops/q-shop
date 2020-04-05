@@ -1,6 +1,7 @@
 
 const validateEmail = email => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   return re.test(email.toString().toLowerCase());
 }
 
@@ -65,5 +66,5 @@ export const getBasketPhonesWithCount = state => {
 
   return uniqueId
     .map(id => getPhoneById(state, id))
-    .map(phone => ({...phone, count: phoneCount(phone.id)}));
+    .map(phone => ({ ...phone, count: phoneCount(phone.id) }));
 };

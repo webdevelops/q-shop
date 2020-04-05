@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { logout } from '../../../store/actions/authActions';
 
@@ -20,4 +21,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Logout)
+Logout.propTypes = {
+  logout: PropTypes.func,
+};
+
+export default connect(null, mapDispatchToProps)(Logout);
