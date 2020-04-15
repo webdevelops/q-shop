@@ -5,18 +5,17 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
 import SmartphoneTwoToneIcon from '@material-ui/icons/SmartphoneTwoTone';
 import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
 import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
 import PersonAddTwoToneIcon from '@material-ui/icons/PersonAddTwoTone';
 import MeetingRoomTwoToneIcon from '@material-ui/icons/MeetingRoomTwoTone';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import useStyles from '../topLineStyles';
 import { connect } from 'react-redux';
-    
+
 const TopLineDrawer = ({ open, toggleDrawer, isAuthenticated }) => {
   const classes = useStyles();
 
@@ -51,14 +50,6 @@ const TopLineDrawer = ({ open, toggleDrawer, isAuthenticated }) => {
         ))}
       </List>
       <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon className={classes.linkIcon}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List> */}
     </div>
   );
 
@@ -77,4 +68,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TopLineDrawer)
+TopLineDrawer.propTypes = {
+  open: PropTypes.bool,
+  toggleDrawer: PropTypes.func,
+  isAuthenticated: PropTypes.bool,
+};
+
+export default connect(mapStateToProps)(TopLineDrawer);

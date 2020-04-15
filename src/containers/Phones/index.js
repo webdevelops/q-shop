@@ -15,7 +15,7 @@ import Spinner from '../../components/Spinner';
 const Phones = ({ 
   fetchPhones, 
   phones, 
-  loadMorePhones, 
+  loadMorePhones,
   fetchCategories, 
   categories,
   loading

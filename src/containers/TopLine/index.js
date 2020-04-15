@@ -80,9 +80,8 @@ const TopLine = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar /* position="static" */>
+      <AppBar>
         <Toolbar>
-
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -102,7 +101,7 @@ const TopLine = props => {
           <div className={classes.sectionDeskTop}>
             <ToggleSwitch signIn={signIn} handleChange={handleChange} />
 
-            <Link to="/sign-up" /* className="topLine__sign-up" */ className={classes.linkSignUp}>Sign Up</Link>
+            <Link to="/sign-up" className={classes.linkSignUp}>Sign Up</Link>
           </div>
 
           <div className={classes.sectionMobile}>

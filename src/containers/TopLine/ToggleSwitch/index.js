@@ -1,5 +1,6 @@
-import React from 'react'
-import { FormControl, FormControlLabel, Switch } from '@material-ui/core'
+import React from 'react';
+import { FormControl, FormControlLabel, Switch } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const ToggleSwitch = ({ signIn, handleChange }) => {
   return (
@@ -9,7 +10,12 @@ const ToggleSwitch = ({ signIn, handleChange }) => {
         label={signIn ? 'Logout' : 'Login'}
       />
     </FormControl>
-  )
+  );
 }
 
-export default ToggleSwitch
+ToggleSwitch.propTypes = {
+  signIn: PropTypes.bool,
+  handleChange: PropTypes.func,
+};
+
+export default ToggleSwitch;

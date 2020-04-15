@@ -52,7 +52,7 @@ export const getPhones = (state, { match }) => {
 export const getTotalBasketCount = state => state.basket.length;
 
 export const getTotalBasketPrice = state => {
-  const applyTotalSum = (current, next) => current + next;
+  const applyTotalSum = (sum, current) => sum + current;
 
   return state.basket
     .map(id => getPhoneById(state, id))
